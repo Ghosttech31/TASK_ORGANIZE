@@ -1,13 +1,16 @@
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Roboto } from "next/font/google";
 import Header from "@/components/header";
 import { ClerkProvider } from "@clerk/nextjs";
 import { shadesOfPurple } from "@clerk/themes";
 import { Toaster } from "sonner";
 import "react-day-picker/dist/style.css";
 
-const inter = Inter({ subset: ["latin"] });
+const roboto = Roboto({
+  weight: "400",
+  subsets: ["latin"],
+});
 
 export const metadata = {
   title: "Ghostify",
@@ -34,7 +37,7 @@ export default function RootLayout({ children }) {
       }}
     >
       <html lang="en">
-        <body className={`${inter.className} dotted-background`}>
+        <body className={`${roboto.className} dotted-background`}>
           <ThemeProvider attribute="class" defaultTheme="dark">
             <Header />
             <main className="min-h-screen">{children}</main>
